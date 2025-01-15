@@ -6,7 +6,7 @@
   <link href="http://makerg9527.github.io/atom.xml" rel="self"/>
   
   <link href="http://makerg9527.github.io/"/>
-  <updated>2024-11-28T11:47:26.420Z</updated>
+  <updated>2025-01-15T04:53:33.059Z</updated>
   <id>http://makerg9527.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何用手机or平板远程畅玩3A大作</title>
+    <link href="http://makerg9527.github.io/posts/9c644778.html"/>
+    <id>http://makerg9527.github.io/posts/9c644778.html</id>
+    <published>2024-12-04T11:33:18.000Z</published>
+    <updated>2025-01-15T04:53:33.059Z</updated>
+    
+    <content type="html"><![CDATA[<p>不说了，直接上干货：</p><h1 id="方法一，向日葵"><a href="#方法一，向日葵" class="headerlink" title="方法一，向日葵"></a>方法一，向日葵</h1><p>下载地址： <a href="https://sunlogin.oray.com/download">https://sunlogin.oray.com/download</a></p><p>优点：简单方便</p><p>缺点：1.不开源 2.想流畅要付费，而且比较贵 3.手柄按键可能会出问题</p><h1 id="方法二，内网穿透-SteamLink"><a href="#方法二，内网穿透-SteamLink" class="headerlink" title="方法二，内网穿透 + SteamLink"></a>方法二，内网穿透 + SteamLink</h1><p>优点：简单方便</p><p>缺点：不开源，且Steam以外的游戏可能不太适配</p><h1 id="方法三，内网穿透-Sunshine-amp-Moonlight"><a href="#方法三，内网穿透-Sunshine-amp-Moonlight" class="headerlink" title="方法三，内网穿透 + Sunshine &amp; Moonlight"></a>方法三，内网穿透 + Sunshine &amp; Moonlight</h1><p>还没写完！！！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;不说了，直接上干货：&lt;/p&gt;
+&lt;h1 id=&quot;方法一，向日葵&quot;&gt;&lt;a href=&quot;#方法一，向日葵&quot; class=&quot;headerlink&quot; title=&quot;方法一，向日葵&quot;&gt;&lt;/a&gt;方法一，向日葵&lt;/h1&gt;&lt;p&gt;下载地址： &lt;a href=&quot;https://sunlogin.</summary>
+      
+    
+    
+    
+    <category term="网络工程" scheme="http://makerg9527.github.io/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>树莓派搭建Minecraft服务器</title>
