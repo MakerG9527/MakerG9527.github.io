@@ -4,16 +4,16 @@
   
     
     <entry>
-      <title>如何用手机or平板远程畅玩3A大作</title>
-      <link href="/posts/9c644778.html"/>
-      <url>/posts/9c644778.html</url>
+      <title>OpenCV入门</title>
+      <link href="/posts/867cb050.html"/>
+      <url>/posts/867cb050.html</url>
       
-        <content type="html"><![CDATA[<p>不说了，直接上干货：</p><h1 id="方法一，向日葵"><a href="#方法一，向日葵" class="headerlink" title="方法一，向日葵"></a>方法一，向日葵</h1><p>下载地址： <a href="https://sunlogin.oray.com/download">https://sunlogin.oray.com/download</a></p><p>优点：简单方便</p><p>缺点：1.不开源 2.想流畅要付费，而且比较贵 3.手柄按键可能会出问题</p><h1 id="方法二，内网穿透-SteamLink"><a href="#方法二，内网穿透-SteamLink" class="headerlink" title="方法二，内网穿透 + SteamLink"></a>方法二，内网穿透 + SteamLink</h1><p>优点：简单方便</p><p>缺点：不开源，且Steam以外的游戏可能不太适配</p><h1 id="方法三，内网穿透-Sunshine-amp-Moonlight"><a href="#方法三，内网穿透-Sunshine-amp-Moonlight" class="headerlink" title="方法三，内网穿透 + Sunshine &amp; Moonlight"></a>方法三，内网穿透 + Sunshine &amp; Moonlight</h1><p>还没写完！！！</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="使用Jupyter-Notebook"><a href="#使用Jupyter-Notebook" class="headerlink" title="使用Jupyter Notebook"></a>使用Jupyter Notebook</h1><p>来不及了解释了，直接上手！</p><p>打开Anaconda Prompt，激活虚拟环境: <code>conda activate venv</code></p><p>安装Jupyter: <code>pip install jupyter notebook</code></p><p>安装完成后，关联Anaconda内核:<br><code>python -m ipykernel install --user --name=venv --display-name=&quot;Python (venv）&quot;</code></p><p>其中 <code>venv</code> 可以换成自己的虚拟环境名，其他一样</p><p><img src="https://bu.dusays.com/2025/01/15/678741d3a0dd6.png" alt="图床" title="更换内核"></p><p>在这之前，我们先安装几个必要的库<code>pip install opencv-python numpy matplotlib</code></p><p>然后，启动Jupyter，输入：<code>jupyter notebook</code></p><p>此时浏览器会弹出一个窗口，就是它了，我们新建一个 <code>Notebook</code></p><p><img src="https://bu.dusays.com/2025/01/15/678742152f29e.png" alt="图床" title="更换内核"></p><p>由于我们已经关联了 <code>Anaconda</code> 内核，此时就会显示其虚拟环境，选择 <code>venv</code></p><p><img src="https://bu.dusays.com/2025/01/15/678742661c7da.png" alt="图床" title="选择内核"></p><h1 id="如何退出Jupyter"><a href="#如何退出Jupyter" class="headerlink" title="如何退出Jupyter"></a>如何退出Jupyter</h1><p>注意，在使用过程中不要关闭 <code>Anaconda Prompt</code>！</p><p>退出时，只需在Prompt中输入 <code>Ctrl + C</code> 即可</p><p><img src="https://bu.dusays.com/2025/01/15/678743c68583e.png" alt="图床" title="退出"></p>]]></content>
       
       
       <categories>
           
-          <category> 网络工程 </category>
+          <category> 深度学习入门 </category>
           
       </categories>
       
