@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>路由器刷OpenWRT | Leader Guo</title><meta name="author" content="Leader Guo,lidguo@foxmail.com"><meta name="copyright" content="Leader Guo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="路由器刷机有什么好处？首先，路由器的硬件本身其实就是ARM，MIPS或PowerPC架构的，就和我们的电脑一样，可以拥有自己的操作系统。而OpenWRT就是针对路由器这类网络设备，并基于Linux开发的开源系统。 也就是说，我们可以通过给路由器刷OpenWRT，让它具有更丰富而强大的功能，比如可以自定义路由器的规则，当我们在打排位时，让其他设备都靠边站，不要过多占用带宽；或者安装相关软件包，实现浏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路由器刷OpenWRT">
+<meta property="og:url" content="http://makerg9527.github.io/posts/86767a69.html">
+<meta property="og:site_name" content="Leader Guo">
+<meta property="og:description" content="路由器刷机有什么好处？首先，路由器的硬件本身其实就是ARM，MIPS或PowerPC架构的，就和我们的电脑一样，可以拥有自己的操作系统。而OpenWRT就是针对路由器这类网络设备，并基于Linux开发的开源系统。 也就是说，我们可以通过给路由器刷OpenWRT，让它具有更丰富而强大的功能，比如可以自定义路由器的规则，当我们在打排位时，让其他设备都靠边站，不要过多占用带宽；或者安装相关软件包，实现浏">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bu.dusays.com/2024/09/08/66dd6f8596a06.jpg">
+<meta property="article:published_time" content="2025-01-19T15:14:49.000Z">
+<meta property="article:modified_time" content="2025-01-20T08:55:49.609Z">
+<meta property="article:author" content="Leader Guo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bu.dusays.com/2024/09/08/66dd6f8596a06.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://makerg9527.github.io/posts/86767a69.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '路由器刷OpenWRT',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-20 16:55:49'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Leader Guo" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://bu.dusays.com/2024/09/08/66dd6f8596a06.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Leader Guo"><span class="site-name">Leader Guo</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">路由器刷OpenWRT</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-19T15:14:49.000Z" title="发表于 2025-01-19 23:14:49">2025-01-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-20T08:55:49.609Z" title="更新于 2025-01-20 16:55:49">2025-01-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/">网络工程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="路由器刷OpenWRT"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="路由器刷机有什么好处？"><a href="#路由器刷机有什么好处？" class="headerlink" title="路由器刷机有什么好处？"></a>路由器刷机有什么好处？</h1><p>首先，路由器的硬件本身其实就是ARM，MIPS或PowerPC架构的，就和我们的电脑一样，可以拥有自己的操作系统。而OpenWRT就是针对路由器这类网络设备，并基于Linux开发的开源系统。</p>
+<p>也就是说，我们可以通过给路由器刷OpenWRT，让它具有更丰富而强大的功能，比如可以自定义路由器的规则，当我们在打排位时，让其他设备都靠边站，不要过多占用带宽；或者安装相关软件包，实现浏览器广告拦截，内网穿透，以及让连接的设备都拥有魔法<del>懂得都懂</del>。</p>
+<h1 id="可刷的固件有哪些？"><a href="#可刷的固件有哪些？" class="headerlink" title="可刷的固件有哪些？"></a>可刷的固件有哪些？</h1><p>关于这个问题，大家可以直接问AI，让它联网搜索一下最新结果。或者上恩山无线论坛<br><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/">https://www.right.com.cn/forum/</a><br>，找找相关帖子（这个论坛算是国内最老，最专业的无线网络技术论坛了）。</p>
+<p>我在这列举几个常见的，比如小米AX3600，红米AX6000，思创CT3003，360的T7，<br>斐讯的K2P、K3C，H3C的NX30 Pro，极路由的WDR5630、WDR5633，华硕的AC88U，中国移动的RAX3000M，还有GL.iNet的系列产品。</p>
+<p>我以前其实还买过一块香橙派R1 Plus LST，有两个千兆网卡和1G内存，结果摔坏了。。。。。</p>
+<p>于是我在寒假买了一台新华三的NX30 Pro，感觉200以内配置算很可以的了，关键是刷机方便（dog）</p>
+<h1 id="开刷！"><a href="#开刷！" class="headerlink" title="开刷！"></a>开刷！</h1><p>本次所需的文件均放在了<a target="_blank" rel="noopener" href="https://github.com/MakerG9527/OpenWRT-for-H3C-NX30-Pro">https://github.com/MakerG9527/OpenWRT-for-H3C-NX30-Pro</a><br>，大家可以先手动下载。</p>
+<h2 id="TELNET模式远程连接"><a href="#TELNET模式远程连接" class="headerlink" title="TELNET模式远程连接"></a>TELNET模式远程连接</h2><p>先给H3C NX30 Pro插上电源和网线，然后用电脑连上它的WiFi，或者用网线连它也行。</p>
+<p>打开Xshell，IP地址是 <code>192.168.124.1</code> ,端口号99，H3C的 <code>TELNET</code> 默认是开启的，<br>而 <code>SSH</code> 默认是关闭的，协议选择 <code>TELNET</code> 连接。</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678dafcd805ff.png" alt="图床" title="xshell连接"> </p>
+<p>账号名为 <code>H3C</code>， 密码则为路由器的密码，初始时为空。</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678dafcd7cdfb.png" alt="图床" title="xshell账号密码"> </p>
+<h2 id="开启SSH"><a href="#开启SSH" class="headerlink" title="开启SSH"></a>开启SSH</h2><p>在命令行中依次输入：</p>
+<p> <code>curl -o /tmp/dropbear.ipk https://downloads.openwrt.org/releases/packages-19.07/aarch64_cortex-a53/base/dropbear_2019.78-2_aarch64_cortex-a53.ipk</code></p>
+<p><code>opkg install /tmp/dropbear.ipk</code></p>
+<p><code>/etc/init.d/dropbear enable</code></p>
+<p><code>/etc/init.d/dropbear start</code></p>
+<p><img src="https://bu.dusays.com/2025/01/20/678db5113c42c.png" alt="图床" title="开启SSH"></p>
+<h2 id="备份系统"><a href="#备份系统" class="headerlink" title="备份系统"></a>备份系统</h2><p>在命令行输入：</p>
+<p><code>dd if=/dev/mtd5 of=/tmp/backup.img</code></p>
+<p>将系统保存到 <code>tmp</code> 路径下，这个过程比较慢，大概要1~5分钟，wait a minute。</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678db6cbe7ede.png" alt="图床" title="系统备份"></p>
+<p>文件传输我们用WinSCP，将系统镜像保存到电脑上，防止出现意外变砖</p>
+<p>进入官网选择下载：<a target="_blank" rel="noopener" href="https://winscp.net/eng/index.php">https://winscp.net/eng/index.php</a></p>
+<p>文件协议选择 <code>SCP</code>， 由于已经开启了SSH，因此端口号选择 <code>22</code>。</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678db8841a716.png" alt="图床" title="winscp登录"></p>
+<p>选择 <code>tmp</code> 目录。</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678dba23dd19b.png" alt="图床" title="选择目录"></p>
+<p>将右侧 <code>backup.img</code> 拖到左侧电脑进行保存。</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678dc27455a5e.png" alt="图床" title="选择目录"></p>
+<h2 id="刷入uboot"><a href="#刷入uboot" class="headerlink" title="刷入uboot"></a>刷入uboot</h2><p>我们可以把uboot理解为电脑的BIOS，它主要是嵌入式设备的一个开机引导程序，负责对硬件进行初始化。另外，我们可以利用uboot帮助我们刷写系统。</p>
+<p>找到对应的路由器型号的 <code>uboot.bin</code> 文件，保存到电脑上，然后拖入刚才右侧的 <code>/tmp</code> 路径下。</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678dec8053937.png" alt="图床" title="选择目录"></p>
+<p>然后打开xshell，输入 <code>cd /tmp</code> 打开 <code>/tmp</code> 目录，可以看到刚刚放进来的文件</p>
+<p>输入 <code>md5sum uboot.bin</code> 查看校验码，结果必须和这个一致，否则刷了会变砖。</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678decc0187db.png" alt="图床" title="烧入uboot"></p>
+<p>确定后输入 <code>mtd write /tmp/uboot.bin FIP</code> 刷入uboot。</p>
+<h2 id="进入uboot"><a href="#进入uboot" class="headerlink" title="进入uboot"></a>进入uboot</h2><p>给路由器断电，先按住背后Reset按钮不放，再插电。上电后等待 10s 左右松开背后Reset，路由器就进入了uboot。</p>
+<p>用网线连接路由器LAN1和电脑的网口，关闭 <code>DHCP</code>，选择手动，然后点击 <code>编辑</code>：</p>
+<p>IP地址为 <code>192.168.1.2</code>，子网掩码 <code>255.255.255.0</code> ，网关 <code>192.168.1.1</code>，DNS <code>192.168.1.1</code>。</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678deded01312.png" alt="图床" title="IP设置"></p>
+<p>保存后，打开浏览器，网址输入 <code>192.168.1.1</code>， 即可进入uboot后台。</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678deeeb76041.png" alt="图床" title="进入uboot"></p>
+<p>选择固件，然后点击 <code>Upload</code> 即可烧录，等待片刻。</p>
+<p>此界面说明刷入OpenWRT成功！</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678def724e142.png" alt="图床" title="成功"></p>
+<h1 id="进入OpenWRT界面"><a href="#进入OpenWRT界面" class="headerlink" title="进入OpenWRT界面"></a>进入OpenWRT界面</h1><p>重新选择 <code>DHCP</code></p>
+<p><img src="https://bu.dusays.com/2025/01/20/678e04fa273c3.png" alt="图床" title="DHCP"></p>
+<p>在浏览器输入 <code>192.168.6.1</code> ，默认账号名 <code>root</code>，密码为 <code>password</code></p>
+<p><img src="https://bu.dusays.com/2025/01/20/678e0511a9e3a.png" alt="图床" title="登录"></p>
+<h2 id="修改WiFi密码"><a href="#修改WiFi密码" class="headerlink" title="修改WiFi密码"></a>修改WiFi密码</h2><p>在 <code>网络</code> -&gt; <code>无线</code> 中，点击配置，2.4G和5G的都改一下</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678e0610cda42.png" alt="图床" title="修改WiFi"></p>
+<p><code>认证模式</code> 改成 <code>WPA2-PSK</code> 或 <code>WPA2-PSK/WPA3-SAE</code>，<code>password</code> 改成自己的密码，然后点击下方的 <code>保存&amp;应用</code> 即可。</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678e065255be0.png" alt="图床" title="修改WiFi"></p>
+<h2 id="安装软件包"><a href="#安装软件包" class="headerlink" title="安装软件包"></a>安装软件包</h2><p>在 <code>系统</code> -&gt; <code>软件包</code> 中可以查找并安装需要的软件，比如内网穿透的 <code>zerotier</code>,<br>安装完后直接在 <code>VPN</code> 中可以找到。</p>
+<p><img src="https://bu.dusays.com/2025/01/20/678e09333d53d.png" alt="图床" title="zerotier"></p>
+<p><img src="https://bu.dusays.com/2025/01/20/678e0ac82c076.png" alt="图床" title="zerotier"></p>
+<h1 id="刷回原系统"><a href="#刷回原系统" class="headerlink" title="刷回原系统"></a>刷回原系统</h1><p>得益于之前的备份，我们直接在uboot中选择 <code>backup.img</code> 然后上传即可！</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://MakerG9527.github.io">Leader Guo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://makerg9527.github.io/posts/86767a69.html">http://makerg9527.github.io/posts/86767a69.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://MakerG9527.github.io" target="_blank">Leader Guo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://bu.dusays.com/2024/09/08/66dd6f8596a06.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/867cb050.html" title="OpenCV入门"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">OpenCV入门</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://bu.dusays.com/2024/09/08/66dd6f8596a06.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Leader Guo</div><div class="author-info__description">菜 就 多 练 !</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/MakerG9527"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome to My Blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E5%88%B7%E6%9C%BA%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">路由器刷机有什么好处？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%AF%E5%88%B7%E7%9A%84%E5%9B%BA%E4%BB%B6%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">可刷的固件有哪些？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%88%B7%EF%BC%81"><span class="toc-number">3.</span> <span class="toc-text">开刷！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#TELNET%E6%A8%A1%E5%BC%8F%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="toc-number">3.1.</span> <span class="toc-text">TELNET模式远程连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%90%AFSSH"><span class="toc-number">3.2.</span> <span class="toc-text">开启SSH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.</span> <span class="toc-text">备份系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B7%E5%85%A5uboot"><span class="toc-number">3.4.</span> <span class="toc-text">刷入uboot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5uboot"><span class="toc-number">3.5.</span> <span class="toc-text">进入uboot</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5OpenWRT%E7%95%8C%E9%9D%A2"><span class="toc-number">4.</span> <span class="toc-text">进入OpenWRT界面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9WiFi%E5%AF%86%E7%A0%81"><span class="toc-number">4.1.</span> <span class="toc-text">修改WiFi密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-number">4.2.</span> <span class="toc-text">安装软件包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%B7%E5%9B%9E%E5%8E%9F%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.</span> <span class="toc-text">刷回原系统</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/86767a69.html" title="路由器刷OpenWRT">路由器刷OpenWRT</a><time datetime="2025-01-19T15:14:49.000Z" title="发表于 2025-01-19 23:14:49">2025-01-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/867cb050.html" title="OpenCV入门">OpenCV入门</a><time datetime="2025-01-15T04:54:49.000Z" title="发表于 2025-01-15 12:54:49">2025-01-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a747602e.html" title="树莓派搭建Minecraft服务器">树莓派搭建Minecraft服务器</a><time datetime="2024-10-20T02:26:00.000Z" title="发表于 2024-10-20 10:26:00">2024-10-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/bc6bd085.html" title="树莓派服务器环境配置">树莓派服务器环境配置</a><time datetime="2024-10-19T11:20:02.000Z" title="发表于 2024-10-19 19:20:02">2024-10-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e3b52eec.html" title="Pycharm &amp; Anaconda 环境配置">Pycharm &amp; Anaconda 环境配置</a><time datetime="2024-09-08T09:57:31.000Z" title="发表于 2024-09-08 17:57:31">2024-09-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Leader Guo</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="8152976493" data-server="netease" data-type="playlist" data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true" ></div><script defer src="/js/cursor.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
