@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Linux服务器的基本操作</title>
+      <link href="/posts/9d9e8596.html"/>
+      <url>/posts/9d9e8596.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="常见指令如下"><a href="#常见指令如下" class="headerlink" title="常见指令如下"></a>常见指令如下</h1><p>查看显卡配置：<code>nvidia-smi</code></p><h2 id="文件管理基本操作"><a href="#文件管理基本操作" class="headerlink" title="文件管理基本操作"></a>文件管理基本操作</h2><p>查看磁盘空间：<code>df -h</code></p><p>列出当前目录下文件：<code>ls</code></p><p>打开目标文件夹：<code>cd xxx</code></p><p>返回上级目录：<code>cd ..</code></p><p>移动文件或文件夹：<code>mv xxx.xxx /path/to/destination/</code><br>注：如将当前目录下的文件 hello.txt 移动到当前目录下的 tmp 文件夹中：mv hello.txt ./tmp/，<br>当前目录下的文件夹 folder 移动到当前目录的上一级目录中：mv folder ../</p><p>重命名文件/文件夹：<code>mv xxx xxxx</code></p><p>创建文件：<code>touch xxx.xxx</code><br>注：如hello.txt, begin.sh</p><p>创建文件夹：<code>mkdir xxx</code></p><p>删除文件：<code>rm xxx</code></p><p>删除文件夹：<code>rm -r xxx</code> </p><p>编辑文件：<code>nano xxx</code> (编辑完后Ctrl + x 退出，按y保存，按n不保存)<br>注：在编辑Python文件时，nano编辑器可能会有缩进错误，用vim就不会</p><h2 id="上传-下载文件"><a href="#上传-下载文件" class="headerlink" title="上传/下载文件"></a>上传/下载文件</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>上传文件：<code>rz</code></p><p>下载文件：<code>sz xxx</code><br>注：<code>rz</code> 和 <code>sz</code> 指令需要安装 <code>lrzsz</code> 包，使用<code>sudo apt-get install lrzsz</code>即可</p><h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用百度网盘下载文件：</p><p>用Python安装一个叫 <code>bypy</code> 的库：pip install bypy</p><p>关联百度云盘账户：<code>bypy info</code></p><p>将生成的网址在浏览器中打开，再将网站中的码复制粘贴到服务器，回车确认</p><p>列出当前网盘目录下文件：<code>bypy list [远程目录]</code><br>注：如列出根目录内容：<code>bypy list /</code></p><p>上传本地文件：<code>bypy upload &lt;本地路径&gt; [远程目录]</code></p><p>下载网盘文件/文件夹：<code>bypy download &lt;远程路径&gt; [本地目录]</code></p><p>注：默认操作路径为百度网盘中的 我的应用数据/bypy 文件夹。<br>服务器使用bypy不会限速！</p><h2 id="运行Python相关步骤"><a href="#运行Python相关步骤" class="headerlink" title="运行Python相关步骤"></a>运行Python相关步骤</h2><p>创建虚拟环境：<code>conda create -n xxx python=x.xx.xx</code></p><p>激活虚拟环境：<code>conda activate xxx</code><br>注：激活后，命令行前面会从(base)变为(xxx)</p><p>（conda相关操作和Windows的Anaconda Prompt一样）</p><p>运行Python程序：python3 xxx.py</p><h2 id="挂载到后台步骤："><a href="#挂载到后台步骤：" class="headerlink" title="挂载到后台步骤："></a>挂载到后台步骤：</h2><h3 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一"></a>方法一</h3><p>创建一个叫xxx的会话：<code>screen -S xxx</code></p><p>然后正常激活虚拟环境，运行Python程序</p><p>运行起来后，将会话挂起：<code>Ctrl + a + d</code> </p><p>此时会回到原来的会话，检测会话有无问题：<code>screen -ls</code></p><p>如果正常会看到 <code>xxx</code> 在列表里面</p><p>重新连接 <code>screen -r xxx</code></p><p>结束后释放会话 <code>xxx</code> ：<code>Ctrl + d</code><br>注：释放需要先连接上 <code>xxx</code></p><h3 id="方法二-1"><a href="#方法二-1" class="headerlink" title="方法二"></a>方法二</h3><p>将指令挂起：<code>nohup python3 xxx.py &amp;</code></p><p>按下回车后如果没有看见 <code>[1]+ 退出</code> 就是挂成功了</p><p>其中的输出内容默认会被定向到当前目录下的 <code>nohup.out</code> 文件中，可用 <code>cat</code> 查看</p><p>查看有哪些被挂起的进程：<code>ps aux | grep python</code><br>注：python可以换成其他任务类型名称</p><p>杀掉进程：<code>kill -9 xxx</code><br>注：xxx为pid号</p><p>方法一可以把任务重新切回到前台暂停，而方法二只能把进程杀掉。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习入门 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>路由器刷OpenWRT</title>
       <link href="/posts/86767a69.html"/>
       <url>/posts/86767a69.html</url>
